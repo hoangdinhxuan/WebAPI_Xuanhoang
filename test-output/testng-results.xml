@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="22488" started-at="2019-03-02T08:36:33Z" finished-at="2019-03-02T08:36:55Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="22488" started-at="2019-03-02T08:36:33Z" finished-at="2019-03-02T08:36:55Z">
+      <class name="webdrive_api.Excercise1">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:webdrive_api.Excercise1@4de8b406]" name="beforeClass" is-config="true" duration-ms="8372" started-at="2019-03-02T15:36:33Z" finished-at="2019-03-02T15:36:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="LogInsystem()[pri:0, instance:webdrive_api.Excercise1@4de8b406]" name="LogInsystem" duration-ms="1799" started-at="2019-03-02T15:36:41Z" finished-at="2019-03-02T15:36:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogInsystem -->
+        <test-method status="PASS" signature="TC04_creatacount()[pri:0, instance:webdrive_api.Excercise1@4de8b406]" name="TC04_creatacount" duration-ms="12165" started-at="2019-03-02T15:36:43Z" finished-at="2019-03-02T15:36:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC04_creatacount -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:webdrive_api.Excercise1@4de8b406]" name="afterClass" is-config="true" duration-ms="120" started-at="2019-03-02T15:36:55Z" finished-at="2019-03-02T15:36:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- webdrive_api.Excercise1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
