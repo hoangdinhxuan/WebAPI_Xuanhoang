@@ -1,5 +1,6 @@
 package webdrive_api;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -30,7 +31,7 @@ public class Excercise5 {
 	// Step 6: Ấn tổ hợp phím Ctrl + N ở textbox: UserID để mở window mới
 	// Step 7: Vào trang https://www.google.com/
 	// Step 8: Verify title hiện tại là: Google
-	@Test
+	// @Test
 	public void TC01() throws InterruptedException {
 		driver.get("http://demo.guru99.com/v4/");
 		WebElement username = driver.findElement(By.xpath("//input[@name='uid']"));
@@ -44,6 +45,60 @@ public class Excercise5 {
 		Assert.assertEquals("Google", driver.getTitle());
 	}
 
+	// Exercise 01:
+	// Step 01 - Truy cập vào
+	// trang:http://the-internet.herokuapp.com/javascript_alerts
+	// Step 02 - Click vào button: Click for JS Alert
+	// Step 03 - Verify message hiển thị trong alert là: I am a JS Alert
+	// Step 04 - Accept alert và verify message hiển thị tại Result là: You clicked
+	// an alert successfully
+
+	//@Test
+	public void Excercise_Alerts() throws InterruptedException {
+		driver.get("http://the-internet.herokuapp.com/javascript_alerts");
+		WebElement clickbutton = driver.findElement(By.xpath("//button[@onclick='jsAlert()']"));
+		clickbutton.click();
+		Alert alert = driver.switchTo().alert();
+		String textaAlert = alert.getText();
+		Assert.assertEquals("I am a JS Alert", textaAlert);
+		alert.accept();
+		String textResult = driver.findElement(By.xpath("//p[@id='result']")).getText();
+		Assert.assertEquals("You successfuly clicked an alert", textResult);
+
+	}
+	//Exercise 02: Step 01 - Truy cập vào trang: http://the-internet.herokuapp.com/javascript_alerts
+		//Step 02 - Click vào button: Click for JS Confirm
+		//Step 03 - Verify message hiển thị trong alert là: I am a JS Confirm
+		//Step 04 - Cancel alert và verify message hiển thị tại Result là:  You clicked: Cancel
+	//@Test
+	public void Excercise2() throws InterruptedException {
+		driver.get("http://the-internet.herokuapp.com/javascript_alerts");
+		WebElement clickbutton = driver.findElement(By.xpath("//button[@onclick='jsConfirm()']"));
+		clickbutton.click();
+		Alert alert = driver.switchTo().alert();
+		String textaAlert = alert.getText();
+		Assert.assertEquals("I am a JS Confirm", textaAlert);
+		alert.dismiss();
+		String textResult = driver.findElement(By.xpath("//p[@id='result']")).getText();
+		Assert.assertEquals("You clicked: Cancel", textResult);
+	}
+	//Exercise 03:Step 01 - Truy cập vào trang: http://the-internet.herokuapp.com/javascript_alerts
+		//Step 02 - Click vào button: Click for JS Prompt
+		//Step 03 - Verify message hiển thị trong alert là: I am a JS prompt
+		//Step 04 - Nhập vào text “VuNguyen”và verify message hiển thị tại Result là:  You entered: VuNguyen	
+	@Test
+	public void Excercise3() throws InterruptedException {
+		driver.get("http://the-internet.herokuapp.com/javascript_alerts");
+		WebElement clickbutton = driver.findElement(By.xpath("//button[@onclick='jsPrompt()']"));
+		clickbutton.click();
+		Alert alert = driver.switchTo().alert();
+		String textaAlert = alert.getText();
+		Assert.assertEquals("I am a JS prompt", textaAlert);
+		alert.sendKeys("VuNguyen");
+		alert.accept();
+		String textResult = driver.findElement(By.xpath("//p[@id='result']")).getText();
+		Assert.assertEquals("You entered: VuNguyen", textResult);
+	}
 	@AfterClass
 	public void afterClass() {
 		driver.close();
