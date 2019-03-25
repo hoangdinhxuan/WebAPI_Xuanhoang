@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Login Suite" parallel="classes">
+  <test name="Test login">
+  
+  <parameter name="username1" value=""/>
+   <parameter name="password1" value=""/>
+   <parameter name="username2" value="123434234@12312.123123"/>
+   <parameter name="password2" value=""/>
+    <parameter name="username3" value="automation@gmail.com"/>
+   <parameter name="password3" value="123"/>
+   <classes>
+			<class name="testNG.Paramester" />
+			<class name="testNG.AnnotationExcercise1" />
+		</classes>
+   
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -54,23 +54,6 @@ public class Excercise2 {
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
-
-	@Test
-
-	public void TC03_checkfb() throws InterruptedException {
-		driver.get("https://www.facebook.com/");
-		Select select = new Select(driver.findElement(By.xpath("//*[@id='day']")));
-		select.selectByVisibleText("14");
-		String selectItems = select.getFirstSelectedOption().getText();
-		Assert.assertEquals("14", selectItems);
-
-		Select selectmonth = new Select(driver.findElement(By.xpath("//*[@id='month']")));
-		selectmonth.selectByVisibleText("Tháng 5");
-		String selectmont = selectmonth.getFirstSelectedOption().getText();
-		Assert.assertEquals("Tháng 5", selectmont);
-
-		Select selectyear = new Select(driver.findElement(By.xpath("//*[@id='year']")));
-		selectyear.selectByVisibleText("2018");
 		String selectyer = selectyear.getFirstSelectedOption().getText();
 		Assert.assertEquals("2018", selectyer);
 
