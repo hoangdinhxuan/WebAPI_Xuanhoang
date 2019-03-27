@@ -22,48 +22,35 @@ public class Excercise3 {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 	}
-
-	// @Test
+//	Exercise 2:
+//		Step 1: Vào trang: https://www.24h.com.vn/
+//		Step 2: Hover vào menu: Danh mục -> Tiếp tục hover menu bóng đá -> Tiếp tục hover -> Lịch thi đấu bóng đá
+//		Step 3: Click vào menu Lịch thi đấu bóng đá
+//		Step 4: Kiểm tra title của web hiện tại là: Lịch thi đấu Bóng Đá Anh, Ý TBN C1, Kết quả Tỉ lệ cược 24h
+	@Test
 	public void TC01_hover() throws InterruptedException {
 		driver.get("https://www.24h.com.vn/");
-		WebElement hoverElement = driver.findElement(By.xpath("//a[@title='Bóng đá']"));
+		WebElement hoverdanhmuc = driver.findElement(By.xpath("//li[@class='sbLi sbLix']//a[@href='#']"));
+		Actions action = new Actions(driver);
+		action.moveToElement(hoverdanhmuc).perform();
+	        Thread.sleep(2000);
+		WebElement hoverbongda = driver.findElement(By.xpath("//li[@class='sbLi']//a[@title='Bóng đá']"));
 		Actions action1 = new Actions(driver);
-		action1.moveToElement(hoverElement).perform();
-
-		WebElement hoverbongda = driver.findElement(By.xpath("//a[@class='tit']"));
+		action1.moveToElement(hoverbongda).perform();
+		Thread.sleep(2000);
+		WebElement hoverlichbongda = driver.findElement(By.xpath("//ul[@class='fly']//a[@title='Lịch thi đấu bóng đá']"));
 		Actions action2 = new Actions(driver);
-		action2.moveToElement(hoverbongda).perform();
-
-		WebElement hoverlichbongda = driver
-				.findElement(By.xpath("//div[@id='div_menu_c2_header_48']//a[@title='Lịch thi đấu bóng đá']"));
-		Actions action3 = new Actions(driver);
-		action3.moveToElement(hoverlichbongda).perform();
-		driver.findElement(By.xpath("//div[@id='div_menu_c2_header_48']//a[@title='Lịch thi đấu bóng đá']")).click();
+		action2.moveToElement(hoverlichbongda).perform();
+		Thread.sleep(2000);
+		hoverlichbongda.click();
 		Assert.assertEquals(driver.getTitle(), "Lịch thi đấu Bóng Đá Anh, Ý TBN C1, Kết quả Tỉ lệ cược 24h");
 	}
-
-	// @Test
-	public void TC02_clickhover() throws InterruptedException {
-		driver.get("https://www.24h.com.vn/");
-
-		WebElement hoverElement = driver.findElement(By.xpath("//a[@class='sbA']"));
-		Actions action1 = new Actions(driver);
-		action1.moveToElement(hoverElement).perform();
-
-		WebElement hoverbongda = driver.findElement(By.xpath("//a[@class='tit']"));
-		Actions action2 = new Actions(driver);
-		action2.moveToElement(hoverbongda).perform();
-
-		WebElement hoverlichbongda = driver
-				.findElement(By.xpath("//div[@id='div_menu_c2_header_48']//a[@title='Lịch thi đấu bóng đá']"));
-		Actions action3 = new Actions(driver);
-		action3.moveToElement(hoverlichbongda).perform();
-		driver.findElement(By.xpath("//div[@id='div_menu_c2_header_48']//a[@title='Lịch thi đấu bóng đá']")).click();
-		Assert.assertEquals(driver.getTitle(), "Lịch thi đấu Bóng Đá Anh, Ý TBN C1, Kết quả Tỉ lệ cược 24h");
-	}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// @Test
+//	Exercise 3: 
+//
+//		Step 1: Vào trang: http://jqueryui.com/resources/demos/selectable/display-grid.html
+//		Step 2: Click and hold: từ số 1 đến 12
+//		Step 3: Kiểm tra rằng đã chọn 12 element thành công( Getsize list element = 12)
+        @Test
 	public void TC03_clickandhover() throws InterruptedException {
 		driver.get("http://jqueryui.com/resources/demos/selectable/display-grid.html");
 		List<WebElement> listItems = driver.findElements(By.xpath("//ol[@id='selectable']/li"));
@@ -74,9 +61,12 @@ public class Excercise3 {
 				.findElements(By.xpath("//ol[@id='selectable']/li[contains(@class,'ui-selected')]"));
 		Assert.assertEquals(listSelected.size(), 12);
 	}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// @Test
+//	Exercise 4: 
+//		Step 01 - Truy cập vào trang: http://swisnl.github.io/jQuery-contextMenu/demo.html
+//		Step 02 - Right click vào element: right click me
+//		Step 03 - Hover chuột vào element: Quit
+//		Step 04 – Kiểm tra label Quit được hiển thị
+        @Test
 	public void TC04_rightclickme() throws InterruptedException {
 		driver.get("http://swisnl.github.io/jQuery-contextMenu/demo.html");
 		WebElement rightBtn = driver.findElement(By.xpath("//span[contains(text(),'right click me')]"));
@@ -87,17 +77,21 @@ public class Excercise3 {
 		hoverright.moveToElement(hoverElement).perform();
 		Assert.assertEquals(hoverElement.getText(), "Quit");
 	}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// @Test
+//	Exercise 5: 
+//
+//		Step 01 - Truy cập vào trang: http://www.seleniumlearn.com/double-click
+//		Step 02 - Double click vào button: Double-Click Me!
+        @Test
 	public void TC05_doubleclick() throws InterruptedException {
 		driver.get("http://www.seleniumlearn.com/double-click");
 		WebElement btnDouble = driver.findElement(By.xpath("//button[contains(text(),'Double-Click Me!')]"));
 		Actions action = new Actions(driver);
 		action.doubleClick(btnDouble).perform();
 	}
-
-	/////////////////////////////////////////////////////////////
+//	 Exercise 7:
+//		 Step 01 - Truy cập vào trang: http://jqueryui.com/resources/demos/droppable/default.html
+//		 Step 02 - Kéo hình chữ nhật: Drag me to my target vào hình Drop here
+//		 Step 03 - Verify message đã thay đổi: Dropped!
 	@Test
 	public void TC07_drap() throws InterruptedException {
 		driver.get("http://jqueryui.com/resources/demos/droppable/default.html");
