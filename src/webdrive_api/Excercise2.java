@@ -63,9 +63,13 @@ public class Excercise2 {
 
 	}
 
-	//	Exercise 3:
+//	Exercise 3:
 //		Step 1: Vào trang: https://www.facebook.com/
 //		Step 2: Select giá trị của các combobox tương ứng:
+//		Ngày: 14
+//		Tháng: Tháng 2
+//		Năm: 2018
+//	Step 3: Kiểm tra các giá trị vừa chọn ở các combobox vừa chọn bằng lệnh: select.getFirstSelectedOption().getText() với các giá trị tương ứng:
 //		Ngày: 14
 //		Tháng: Tháng 2
 //		Năm: 2018
